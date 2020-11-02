@@ -13,6 +13,7 @@ namespace NomadeTFC.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Ville> DataStoreVille => DependencyService.Get<IDataStore<Ville>>();
 
         bool isBusy = false;
         public bool IsBusy
