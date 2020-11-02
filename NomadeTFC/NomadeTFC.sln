@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NomadeTFC.Android", "NomadeTFC\NomadeTFC.Android\NomadeTFC.Android.csproj", "{0E160489-B692-456D-A9EC-47E6DEA0B75C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NomadeTFC", "NomadeTFC\NomadeTFC\NomadeTFC.csproj", "{6D62B48B-9D63-415F-AF06-40B546B4A9B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NomadeTFC", "NomadeTFC\NomadeTFC\NomadeTFC.csproj", "{6D62B48B-9D63-415F-AF06-40B546B4A9B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NomadeTFCTest", "NomadeTFCTest\NomadeTFCTest.csproj", "{9E95A4CF-B4EA-4C63-875B-BF9DA318CED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{6D62B48B-9D63-415F-AF06-40B546B4A9B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D62B48B-9D63-415F-AF06-40B546B4A9B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D62B48B-9D63-415F-AF06-40B546B4A9B9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9E95A4CF-B4EA-4C63-875B-BF9DA318CED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E95A4CF-B4EA-4C63-875B-BF9DA318CED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E95A4CF-B4EA-4C63-875B-BF9DA318CED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E95A4CF-B4EA-4C63-875B-BF9DA318CED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
