@@ -1,15 +1,14 @@
-﻿using AppSimple.Models;
-using AppSimple.Services;
-using AppSimple.ViewModels;
+﻿using AppSimpleTest;
+using NomadeTFC.Models;
+using NomadeTFC.Services;
+using NomadeTFC.ViewModels;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
-namespace AppSimpleTest {
-    class NewItemViewModelTest {
+namespace NomadeTFCTest
+{
+    public class NewItemViewModelTest {
         private NewItemViewModel _vm;
 
         [SetUp]
