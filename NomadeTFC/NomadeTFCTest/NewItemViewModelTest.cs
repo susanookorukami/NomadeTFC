@@ -1,6 +1,9 @@
 ﻿using AppSimple.Models;
 using AppSimple.Services;
 using AppSimple.ViewModels;
+using NomadeTFC.Models;
+using NomadeTFC.Services;
+using NomadeTFC.ViewModels;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

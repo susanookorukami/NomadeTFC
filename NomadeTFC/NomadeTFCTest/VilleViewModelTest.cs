@@ -6,7 +6,7 @@ using System.Text;
 
 namespace NomadeTFCTest
 {
-   public class Test
+   public class VilleViewModelTest
     {
         VilleViewModel _testV;
 
@@ -16,7 +16,7 @@ namespace NomadeTFCTest
             _testV = new VilleViewModel();
         }
         [Test]
-        public void VilleVie
+        public void VilleVie()
         {
 
         }
