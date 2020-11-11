@@ -13,7 +13,7 @@ namespace NomadeTFCTest
 {
     public class VDVMTests
     {
-        VilleDetailViewModel vdvmt;
+        private VilleDetailViewModel vdvmt;
 
         [SetUp]
         public void Setup()
@@ -22,8 +22,9 @@ namespace NomadeTFCTest
             Device.PlatformServices = new MockPlatformServices();
             DependencyService.Register<MockDataStore>();
             vdvmt = new VilleDetailViewModel();
+            nvvmt = new NewVilleViewModel();
         }
-
+        [Test]
         public void GetAndLoadVille()
         {
             Ville v = new Ville();
@@ -33,6 +34,7 @@ namespace NomadeTFCTest
             v.Description = "Test de la class VDVMTest";
             v.CP = 00005;
 
+            vdvmt.SaveItem().wait();
 
             var ds = DependencyService.Get<IDataStore<Ville>>();
             var result = ds.GetItemsAsync();
