@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NomadeTFC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace NomadeTFC.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewVillePage : ContentView
+    public partial class NewVillePage : ContentPage
     {
+        public Ville ville { get; set; }
         public NewVillePage()
         {
             InitializeComponent();

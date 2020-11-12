@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NomadeTFC.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace NomadeTFC.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VillePage : ContentView
+    public partial class VillesPage : ContentPage
     {
-        public VillePage()
+        VilleViewModel _viewModel;
+        public VillesPage()
         {
             InitializeComponent();
+            BindingContext = _viewModel = new VilleViewModel();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }

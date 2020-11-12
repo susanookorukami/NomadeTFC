@@ -1,4 +1,5 @@
 ﻿using NomadeTFC.Models;
+using NomadeTFC.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -20,7 +21,7 @@ namespace NomadeTFC.ViewModels
 
         public VilleViewModel()
         {
-            Title = "Browse";
+            Title = "Villes";
             Villes = new ObservableCollection<Ville>();
             LoadVillesCommand = new Command(async () => await ExecuteLoadVillesCommand());
 
