@@ -10,7 +10,7 @@ namespace NomadeTFC.ViewModels
     {
         private string nom;
         private string description;
-        private int cp;
+        private string cp;
         public NewVilleViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
@@ -38,7 +38,7 @@ namespace NomadeTFC.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public int CP
+        public string CP
         {
             get => cp;
             set => SetProperty(ref cp, value);

@@ -13,7 +13,7 @@ namespace NomadeTFC.ViewModels
         public string Id { get; set; }
         private string nom;
         private string description;
-        private int cp;
+        private string cp;
 
         public string Nom
         {
@@ -27,7 +27,7 @@ namespace NomadeTFC.ViewModels
             set => SetProperty(ref description, value);
         }
 
-        public int CP
+        public string CP
         {
             get => CP;
             set => SetProperty(ref cp, value);

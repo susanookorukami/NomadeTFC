@@ -15,9 +15,9 @@ namespace NomadeTFC.Services
         {
             villes = new List<Ville>()
             {
-                new Ville { Id = Guid.NewGuid().ToString(), Nom = "First item", Description="This is an item description.", CP=00000 },
-                new Ville { Id = Guid.NewGuid().ToString(), Nom = "Second item", Description="This is an item description.", CP=00001 },
-                new Ville { Id = Guid.NewGuid().ToString(), Nom = "Third item", Description="This is an item description.", CP=00002 },
+                new Ville { Id = Guid.NewGuid().ToString(), Nom = "First item", Description="This is an item description.", CP="00000" },
+                new Ville { Id = Guid.NewGuid().ToString(), Nom = "Second item", Description="This is an item description.", CP="00001" },
+                new Ville { Id = Guid.NewGuid().ToString(), Nom = "Third item", Description="This is an item description.", CP="00002" },
             }; 
         }
 

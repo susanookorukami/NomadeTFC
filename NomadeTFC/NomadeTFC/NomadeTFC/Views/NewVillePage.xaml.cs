@@ -1,4 +1,5 @@
 ﻿using NomadeTFC.Models;
+using NomadeTFC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace NomadeTFC.Views
         public NewVillePage()
         {
             InitializeComponent();
+            BindingContext = new NewVilleViewModel();
         }
     }
 }

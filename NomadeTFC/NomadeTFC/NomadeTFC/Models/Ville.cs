@@ -9,6 +9,6 @@ namespace NomadeTFC.Models
         public string Id { get; set; }
         public string Nom { get; set; }
         public string Description { get; set; }
-        public int CP { get; set; }
+        public string CP { get; set; }
     }
 }

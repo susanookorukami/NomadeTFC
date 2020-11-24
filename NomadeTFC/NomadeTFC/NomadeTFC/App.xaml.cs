@@ -14,6 +14,7 @@ namespace NomadeTFC
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<VilleMockDataStore>();
             MainPage = new AppShell();
         }
 
