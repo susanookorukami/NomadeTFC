@@ -10,10 +10,12 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(VilleId), nameof(VilleId))]
     public class VilleDetailViewModel : BaseViewModel
     {
-        public string Id { get; set; }
+        private string villeId;
         private string nom;
         private string description;
         private string cp;
+
+        public string Id { get; set; }
 
         public string Nom
         {
@@ -29,7 +31,7 @@ namespace NomadeTFC.ViewModels
 
         public string CP
         {
-            get => CP;
+            get => cp;
             set => SetProperty(ref cp, value);
         }
 
@@ -37,20 +39,20 @@ namespace NomadeTFC.ViewModels
         {
             get
             {
-                return Id;
+                return villeId;
             }
             set
             {
-                Id = value;
+                villeId = value;
                 LoadVilleId(value);
             }
         }
 
-        public async void LoadVilleId(string Id)
+        public async void LoadVilleId(string villeId)
         {
             try
             {
-                var ville = await DataStoreVille.GetItemAsync(Id);
+                var ville = await DataStoreVille.GetItemAsync(villeId);
                 Id = ville.Id;
                 Nom = ville.Nom;
                 Description = ville.Description;
