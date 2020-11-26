@@ -10,11 +10,11 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(VilleId), nameof(VilleId))]
     public class VilleDetailViewModel : BaseViewModel
     {
-        
+        private string villeId;
         private string nom;
         private string description;
         private string cp;
-        private string villeId;
+
         public string Id { get; set; }
 
         public string Nom
