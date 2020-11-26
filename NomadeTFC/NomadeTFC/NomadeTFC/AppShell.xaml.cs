@@ -15,6 +15,8 @@ namespace NomadeTFC
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             Routing.RegisterRoute(nameof(NewVillePage), typeof(NewVillePage));
             Routing.RegisterRoute(nameof(VilleDetailPage), typeof(VilleDetailPage));
+            Routing.RegisterRoute(nameof(NewPaysPage), typeof(NewPaysPage));
+            Routing.RegisterRoute(nameof(PaysDetailPage), typeof(PaysDetailPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)

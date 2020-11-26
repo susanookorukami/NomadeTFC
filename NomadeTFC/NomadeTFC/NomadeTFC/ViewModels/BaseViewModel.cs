@@ -14,6 +14,7 @@ namespace NomadeTFC.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public IDataStore<Ville> DataStoreVille => DependencyService.Get<IDataStore<Ville>>();
+        public IDataStore<Pays> DataStorePays => DependencyService.Get<IDataStore<Pays>>();
 
         bool isBusy = false;
         public bool IsBusy

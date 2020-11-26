@@ -83,6 +83,7 @@
         <ShellContent Title="About" Icon="tab_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
         <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
         <ShellContent Title="Ville" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:VillesPage}" />
+        <ShellContent Title="Pays" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:PaysPage}" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
