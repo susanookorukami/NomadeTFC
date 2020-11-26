@@ -16,8 +16,8 @@ namespace NomadeTFC.Services
             pays = new List<Pays>()
             {
                 new Pays { Id = Guid.NewGuid().ToString(), Nom = "France" },
-                new Pays{ Id = Guid.NewGuid().ToString(), Nom = "Angletère" },
-                new Pays { Id = Guid.NewGuid().ToString(), Nom = "Espagne"},
+                new Pays{ Id = Guid.NewGuid().ToString(), Nom = " Angletère" },
+                new Pays { Id = Guid.NewGuid().ToString(), Nom = " Espagne"},
             };
         }
 

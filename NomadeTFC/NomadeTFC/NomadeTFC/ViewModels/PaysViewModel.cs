@@ -21,7 +21,7 @@ namespace NomadeTFC.ViewModels
 
         public PaysViewModel()
         {
-            Title = "Pays";
+            Title = "Liste des pays";
             lesPays = new ObservableCollection<Pays>();
             LoadlesPaysCommand = new Command(async () => await ExecuteLoadlesPaysCommand());
 
