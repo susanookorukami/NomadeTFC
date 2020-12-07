@@ -6,7 +6,7 @@ namespace NomadeTFC.Models
 {
     public class Weather
     {
-        public string Title { get; set; }
+        public string Titre { get; set; }
         public string Temperature { get; set; }
         public string Wind { get; set; }
         public string Humidity { get; set; }
@@ -16,7 +16,7 @@ namespace NomadeTFC.Models
 
         public Weather ()
         {
-            this.Title = " ";
+            this.Titre = " ";
             this.Temperature = " ";
             this.Wind = " ";
             this.Humidity = " ";

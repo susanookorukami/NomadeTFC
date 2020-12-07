@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace NomadeTFC.ViewModels
 {
@@ -13,14 +14,14 @@ namespace NomadeTFC.ViewModels
         public static async Task<Weather> GetWeather(string ville)
         {
             string key = "d2dc2b04ca7fa14e73f5058111029bf2";
-            string queryString = "api.openweathermap.org/data/2.5/weather?q="+ville+"&appid="+key+"&units=metric";
+            string queryString = "http://api.openweathermap.org/data/2.5/weather?q=" + ville + "&appid=" + key + "&units=metric";
 
-            dynamic results = await DataService.getDataFromService(queryString).ConfigureAwait(false);
+            dynamic results = await DataService.GetDataFromService(queryString).ConfigureAwait(false);
 
             if (results["weather"] != null)
             {
                 Weather weather = new Weather();
-                weather.Title = (string)results["name"];
+                weather.Titre = (string)results["name"];
                 weather.Temperature = (string)results["main"]["temp"]+ "C°";
                 weather.Wind = (string)results["wind"]["speed"] + "Km/h";
                 weather.Humidity = (string)results["main"]["humidity"] + " %";

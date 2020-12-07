@@ -9,12 +9,14 @@ namespace NomadeTFC.Services
 {
     public class DataService
     {
-        public static async Task<dynamic> getDataFromService(string queryString)
+        public static async Task<dynamic> GetDataFromService(string queryString)
         {
             HttpClient client = new HttpClient();
-            var response = await client.GetAsync(queryString);
 
             dynamic data = null;
+            var response = await client.GetAsync(queryString);
+
+
             if (response != null)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
