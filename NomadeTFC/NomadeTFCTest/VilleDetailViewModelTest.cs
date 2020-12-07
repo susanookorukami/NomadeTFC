@@ -6,17 +6,18 @@ using System.Text;
 
 namespace NomadeTFCTest
 {
-   public class VilleViewModelTest
+    public class VilleDetailViewModelTest
     {
-        VilleViewModel _testV;
+        VilleDetailViewModel Vdvm;
 
         [SetUp]
         public void Setup()
         {
-            _testV = new VilleViewModel();
+            Vdvm = new VilleDetailViewModel();
         }
+
         [Test]
-        public void VilleVie()
+        public void loadVilleID()
         {
 
         }

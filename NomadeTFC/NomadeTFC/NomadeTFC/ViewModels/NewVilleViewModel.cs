@@ -19,6 +19,7 @@ namespace NomadeTFC.ViewModels
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
+        
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(Nom)
