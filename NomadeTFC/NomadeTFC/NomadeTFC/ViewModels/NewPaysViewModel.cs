@@ -52,6 +52,9 @@ namespace NomadeTFC.ViewModels
             };
 
             await DataStorePays.AddItemAsync(newPays);
+           
+
+
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

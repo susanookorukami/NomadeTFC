@@ -10,21 +10,19 @@ using Xamarin.Forms;
 
 namespace NomadeTFC.ViewModels
 {
-    public class PaysViewModel : BaseViewModel
+    class PaysUpdateViewModel : BaseViewModel
     {
         private Pays _selectedPays;
 
         public ObservableCollection<Pays> lesPays { get; }
         public Command LoadlesPaysCommand { get; }
-        public Command AddPaysCommand { get; }
-        
-
+        public Command UpdatePaysCommand { get; }
 
 
 
         public Command<Pays> PaysTapped { get; }
 
-        public PaysViewModel()
+        public PaysUpdateViewModel()
         {
             Title = "Liste des pays";
             lesPays = new ObservableCollection<Pays>();
@@ -32,9 +30,7 @@ namespace NomadeTFC.ViewModels
 
             PaysTapped = new Command<Pays>(OnPaysSelected);
 
-            AddPaysCommand = new Command(OnAddPays);
-            
-
+            UpdatePaysCommand = new Command(OnRemovePays);
 
 
 
@@ -52,7 +48,7 @@ namespace NomadeTFC.ViewModels
                 var pays = await DataStorePays.GetItemsAsync(true);
                 foreach (var lePays in pays)
                 {
-                    lesPays.Add(lePays);
+                    lesPays.Remove(lePays);
                 }
             }
             catch (Exception ex)
@@ -81,11 +77,11 @@ namespace NomadeTFC.ViewModels
             }
         }
 
-        private async void OnAddPays(object obj)
+        private async void OnRemovePays(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewPaysPage));
+            await Shell.Current.GoToAsync(nameof(UpdatePaysPage));
         }
-       
+
 
         async void OnPaysSelected(Pays lePays)
         {
