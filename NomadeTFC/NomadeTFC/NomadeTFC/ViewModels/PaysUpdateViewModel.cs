@@ -10,86 +10,104 @@ using Xamarin.Forms;
 
 namespace NomadeTFC.ViewModels
 {
+    [QueryProperty(nameof(PaysId), nameof(PaysId))]
     class PaysUpdateViewModel : BaseViewModel
     {
         private Pays _selectedPays;
 
-        public ObservableCollection<Pays> lesPays { get; }
-        public Command LoadlesPaysCommand { get; }
-        public Command UpdatePaysCommand { get; }
+
+        public Command CancelCommand { get; }
+        public Command SaveCommand { get; }
+          
 
 
 
-        public Command<Pays> PaysTapped { get; }
 
         public PaysUpdateViewModel()
         {
-            Title = "Liste des pays";
-            lesPays = new ObservableCollection<Pays>();
-            LoadlesPaysCommand = new Command(async () => await ExecuteLoadlesPaysCommand());
+            Title = "Modifier des pays";
+           
+          
+            
 
-            PaysTapped = new Command<Pays>(OnPaysSelected);
-
-            UpdatePaysCommand = new Command(OnRemovePays);
+          //  UpdatePaysCommand = new Command(OnUpdatePays);
 
 
 
         }
 
 
-
-        async Task ExecuteLoadlesPaysCommand()
+        private async void OnSave()
         {
-            IsBusy = true;
+            Pays newPays = new Pays()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Nom = Nom,
 
-            try
-            {
-                lesPays.Clear();
-                var pays = await DataStorePays.GetItemsAsync(true);
-                foreach (var lePays in pays)
-                {
-                    lesPays.Remove(lePays);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            };
+
+            await DataStorePays.AddItemAsync(newPays);
+
+
+
+
+            // This will pop the current page off the navigation stack
+            await Shell.Current.GoToAsync("..");
         }
+
 
         public void OnAppearing()
+
         {
             IsBusy = true;
-            SelectedPays = null;
+           
         }
 
-        public Pays SelectedPays
+      
+
+
+       
+        private string lePaysId;
+        private string nom;
+
+
+        public string Id { get; set; }
+
+        public string Nom
         {
-            get => _selectedPays;
+            get => nom;
+            set => SetProperty(ref nom, value);
+        }
+
+
+
+        public string PaysId
+        {
+            get
+            {
+                return lePaysId;
+            }
             set
             {
-                SetProperty(ref _selectedPays, value);
-                OnPaysSelected(value);
+                lePaysId = value;
+                LoadPaysId(value);
             }
         }
 
-        private async void OnRemovePays(object obj)
+        public async void LoadPaysId(string lePaysId)
         {
-            await Shell.Current.GoToAsync(nameof(UpdatePaysPage));
+            try
+            {
+                var lePays = await DataStorePays.GetItemAsync(lePaysId);
+                Id = lePays.Id;
+                Nom = lePays.Nom;
+
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("Failed to Load Item");
+            }
         }
 
-
-        async void OnPaysSelected(Pays lePays)
-        {
-            if (lePays == null)
-                return;
-
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(PaysDetailPage)}?{nameof(PaysDetailViewModel.PaysId)}={lePays.Id}");
-        }
     }
 }

@@ -14,11 +14,13 @@ namespace NomadeTFC.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UpdatePaysPage : ContentPage
     {
+
         public Pays lePays { get; set; }
         public UpdatePaysPage()
         {
             InitializeComponent();
             BindingContext = new PaysUpdateViewModel();
         }
+       
     }
 }

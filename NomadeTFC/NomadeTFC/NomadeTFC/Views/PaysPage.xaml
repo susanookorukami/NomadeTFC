@@ -4,7 +4,7 @@
              x:Class="NomadeTFC.Views.PaysPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:NomadeTFC.ViewModels"  
-             xmlns:model="clr-namespace:NomadeTFC.Models"  
+             xmlns:model="clr-namespace:NomadeTFC.Models"   
              x:Name="BrowsePaysPage">
 
     <ContentPage.ToolbarItems>
@@ -29,9 +29,12 @@
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:PaysViewModel}}, Path=PaysTapped}"		
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:PaysViewModel}}, Path=PaysTapped}"
+                               
+                                 
                                 CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
+                            
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </DataTemplate>

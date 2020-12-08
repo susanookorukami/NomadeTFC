@@ -12,6 +12,7 @@
             <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
             <Label Text="CP" FontSize="Medium" />
             <Editor Text="{Binding CP, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+            <Picker Title="Select a country" ItemsSource="{Binding CountryList}" ItemDisplayBinding="{Binding Nom}"  SelectedItem="{Binding Pays, Mode=TwoWay}" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>

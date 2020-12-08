@@ -12,5 +12,5 @@
         <Label Text="{Binding Nom}" FontSize="Small"/>
         
     </StackLayout>
-
+   
 </ContentPage>
