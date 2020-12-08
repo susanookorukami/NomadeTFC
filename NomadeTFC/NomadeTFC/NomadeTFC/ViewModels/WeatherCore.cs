@@ -14,7 +14,7 @@ namespace NomadeTFC.ViewModels
         public static async Task<Weather> GetWeather(string ville)
         {
             string key = "d2dc2b04ca7fa14e73f5058111029bf2";
-            string queryString = "http://api.openweathermap.org/data/2.5/weather?q=" + ville + "&appid=" + key + "&units=metric";
+            string queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + ville + "&appid=" + key + "&units=metric";
 
             dynamic results = await DataService.GetDataFromService(queryString).ConfigureAwait(false);
 

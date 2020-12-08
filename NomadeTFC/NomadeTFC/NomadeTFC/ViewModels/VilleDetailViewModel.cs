@@ -128,7 +128,7 @@ namespace NomadeTFC.ViewModels
                 Sunrise = weather.Sunrise;
                 Sunset = weather.Sunset;
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 Debug.WriteLine("Failed to Load Item");
             }

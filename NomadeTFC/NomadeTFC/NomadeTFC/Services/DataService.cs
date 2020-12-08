@@ -12,7 +12,7 @@ namespace NomadeTFC.Services
         public static async Task<dynamic> GetDataFromService(string queryString)
         {
             HttpClient client = new HttpClient();
-
+            
             dynamic data = null;
             var response = await client.GetAsync(queryString);
 
