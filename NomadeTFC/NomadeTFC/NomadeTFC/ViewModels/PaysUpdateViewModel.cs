@@ -1,4 +1,5 @@
 ﻿using NomadeTFC.Models;
+using NomadeTFC.Services;
 using NomadeTFC.Views;
 using System;
 using System.Collections.Generic;
@@ -19,28 +20,26 @@ namespace NomadeTFC.ViewModels
         {
 
             Title = "Modifier des pays";
-            SaveCommand = new Command(OnSave, ValidateSave);
+            UpdateCommand = new Command(OnUpdate, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute();
+                (_, __) => UpdateCommand.ChangeCanExecute();
         }
         public Command CancelCommand { get; }
-        public Command SaveCommand { get; }
+        public Command UpdateCommand { get; }
 
 
-        private async void OnSave()
+        private async void OnUpdate()
         {
-            Pays newPays = new Pays()
+            var id = PaysId;
+            Pays UpdatePays = new Pays()
             {
-                Id = Guid.NewGuid().ToString(),
+                Id=id,
+                //Id = Guid.NewGuid().ToString(),
                 Nom = nom,
-
             };
 
-            await DataStorePays.UpdateItemAsync(newPays);
-
-
-
+            await DataStorePays.UpdateItemAsync(UpdatePays);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
@@ -54,14 +53,10 @@ namespace NomadeTFC.ViewModels
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(Nom);
-
-
         }
         public void OnAppearing()
-
         {
             IsBusy = true;
-
         }
 
 
