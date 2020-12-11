@@ -18,10 +18,6 @@ namespace NomadeTFC.ViewModels
         public Command LoadlesPaysCommand { get; }
         public Command AddPaysCommand { get; }
         
-
-
-
-
         public Command<Pays> PaysTapped { get; }
 
         public PaysViewModel()
@@ -33,10 +29,7 @@ namespace NomadeTFC.ViewModels
             PaysTapped = new Command<Pays>(OnPaysSelected);
 
             AddPaysCommand = new Command(OnAddPays);
-            
-
-
-
+       
 
         }
 

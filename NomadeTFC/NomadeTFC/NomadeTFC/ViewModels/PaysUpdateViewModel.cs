@@ -13,28 +13,19 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(PaysId), nameof(PaysId))]
     class PaysUpdateViewModel : BaseViewModel
     {
-        private Pays _selectedPays;
-
-
-        public Command CancelCommand { get; }
-        public Command SaveCommand { get; }
-          
-
-
-
-
+   
+       
         public PaysUpdateViewModel()
         {
+
             Title = "Modifier des pays";
-           
-          
-            
-
-          //  UpdatePaysCommand = new Command(OnUpdatePays);
-
-
-
+            SaveCommand = new Command(OnSave, ValidateSave);
+            CancelCommand = new Command(OnCancel);
+            this.PropertyChanged +=
+                (_, __) => SaveCommand.ChangeCanExecute();
         }
+        public Command CancelCommand { get; }
+        public Command SaveCommand { get; }
 
 
         private async void OnSave()
@@ -42,11 +33,11 @@ namespace NomadeTFC.ViewModels
             Pays newPays = new Pays()
             {
                 Id = Guid.NewGuid().ToString(),
-                Nom = Nom,
+                Nom = nom,
 
             };
 
-            await DataStorePays.AddItemAsync(newPays);
+            await DataStorePays.UpdateItemAsync(newPays);
 
 
 
@@ -55,18 +46,25 @@ namespace NomadeTFC.ViewModels
             await Shell.Current.GoToAsync("..");
         }
 
+        private async void OnCancel()
+        {
+            // This will pop the current page off the navigation stack
+            await Shell.Current.GoToAsync("..");
+        }
+        private bool ValidateSave()
+        {
+            return !String.IsNullOrWhiteSpace(Nom);
 
+
+        }
         public void OnAppearing()
 
         {
             IsBusy = true;
-           
+
         }
 
-      
 
-
-       
         private string lePaysId;
         private string nom;
 
@@ -80,8 +78,7 @@ namespace NomadeTFC.ViewModels
         }
 
 
-
-        public string PaysId
+    public string PaysId
         {
             get
             {
@@ -108,6 +105,7 @@ namespace NomadeTFC.ViewModels
                 Debug.WriteLine("Failed to Load Item");
             }
         }
-
     }
+
 }
+

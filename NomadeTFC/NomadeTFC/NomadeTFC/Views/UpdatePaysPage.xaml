@@ -9,11 +9,11 @@
             <Label Text="Nom" FontSize="Medium" />
             <Entry Text="{Binding Nom, Mode=TwoWay}" FontSize="Medium" />
 
-            
-          <!--  <StackLayout Orientation="Horizontal">
+
+            <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
-            </StackLayout>-->
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 

@@ -9,6 +9,7 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(PaysId), nameof(PaysId))]
     class PaysDetailViewModel : BaseViewModel
     {
+        
         private string lePaysId;
         private string nom;
        
