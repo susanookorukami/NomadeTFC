@@ -11,6 +11,18 @@
         <Label Text="{Binding Description}" FontSize="Small"/>
         <Label Text="CP:" FontSize="Medium" />
         <Label Text="{Binding CP}" FontSize="Small"/>
+        <Label Text="Temperature:" FontSize="Medium" />
+        <Label Text="{Binding Temperature}" FontSize="Small"/>
+        <Label Text="Vent:" FontSize="Medium" />
+        <Label Text="{Binding Wind}" FontSize="Small"/>
+        <Label Text="Humidité:" FontSize="Medium" />
+        <Label Text="{Binding Humidity}" FontSize="Small"/>
+        <Label Text="Visibilité:" FontSize="Medium" />
+        <Label Text="{Binding Visibility}" FontSize="Small"/>
+        <Label Text="Lever:" FontSize="Medium" />
+        <Label Text="{Binding Sunrise}" FontSize="Small"/>
+        <Label Text="Coucher:" FontSize="Medium" />
+        <Label Text="{Binding Sunset}" FontSize="Small"/>
     </StackLayout>
 
 </ContentPage>

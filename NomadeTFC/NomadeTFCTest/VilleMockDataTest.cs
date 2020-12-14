@@ -22,7 +22,7 @@ namespace NomadeTFCTest
             ville.Id = new Guid().ToString();
             ville.Nom = "test";
             ville.Description = "ville de test";
-            ville.CP = 00000;
+            ville.CP = "00000";
             Vmds.AddItemAsync(ville).Wait();
 
             var ville2Async =Vmds.GetItemAsync(ville.Id);
