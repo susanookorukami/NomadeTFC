@@ -4,6 +4,7 @@ using System.Text;
 using Xamarin.Forms;
 using NomadeTFC.Models;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace NomadeTFC.ViewModels
 {
@@ -56,7 +57,7 @@ namespace NomadeTFC.ViewModels
             }
         }
 
-        public async void LoadVilleId(string villeId)
+        public async Task LoadVilleId(string villeId)
         {
             try
             {

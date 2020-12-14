@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace NomadeTFC.ViewModels
@@ -19,6 +20,7 @@ namespace NomadeTFC.ViewModels
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
+        
         private bool ValidateSave()
         {
             return !String.IsNullOrWhiteSpace(Nom)
@@ -55,6 +57,13 @@ namespace NomadeTFC.ViewModels
 
         private async void OnSave()
         {
+            await Save();
+            // This will pop the current page off the navigation stack
+            await Shell.Current.GoToAsync("..");
+        }
+        //Test
+        public async Task Save()
+        {
             Ville newVille = new Ville()
             {
                 Id = Guid.NewGuid().ToString(),
@@ -64,9 +73,6 @@ namespace NomadeTFC.ViewModels
             };
 
             await DataStoreVille.AddItemAsync(newVille);
-
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
         }
     }
 }

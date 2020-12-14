@@ -3,38 +3,43 @@ using NomadeTFC.Models;
 using NomadeTFC.Services;
 using NomadeTFC.ViewModels;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Xamarin.Forms;
 
 namespace NomadeTFCTest
 {
-    public class NewItemViewModelTest {
-        private NewItemViewModel _vm;
-
+    class NewVilleViewModelTest
+    {
+        NewVilleViewModel Nvvm;
         [SetUp]
-        public void SetUp() {
-
+        public void Setup()
+        {
             Device.Info = new MockDeviceInfo();
             Device.PlatformServices = new MockPlatformServices();
             ////DependencyService.Register<MockResourcesProvider>();
             ////DependencyService.Register<MockDeserializer>();
-            DependencyService.Register<MockDataStore>();
-            this._vm = new NewItemViewModel();
+            DependencyService.Register<VilleMockDataStore>();
+            Nvvm = new NewVilleViewModel();
         }
+
         [Test]
-        public void TestSave() {
-           _vm.Text = "toto";
+        public void Onsave()
+        {
+            Nvvm.Description = "toto";
             // j'ai créé une méthode SaveItem qui sera appelée par OnSave
-             _vm.SaveItem().Wait();
+            Nvvm.Save().Wait();
 
             // je récupère le service DataStore utilisé par NewItemViewModel
-            var ds = DependencyService.Get<IDataStore<Item>>();
+            var ds = DependencyService.Get<IDataStore<Ville>>();
             var result = ds.GetItemsAsync();
             result.Wait();
             // je prends le dernier élément de ma liste
             var r = result.Result.Last();
             // je fais ma comparaison
-            Assert.AreEqual(_vm.Text, r.Text);
+            Assert.AreEqual(Nvvm.Description, r.Description);
         }
     }
 }
