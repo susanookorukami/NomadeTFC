@@ -14,13 +14,12 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(PaysId), nameof(PaysId))]
     class PaysUpdateViewModel : BaseViewModel
     {
-   
        
         public PaysUpdateViewModel()
         {
 
-            Title = "Modifier des pays";
-            UpdateCommand = new Command(OnUpdate, ValidateSave);
+            //Title = "Modifier des pays";
+            UpdateCommand = new Command(OnUpdate, ValidateUpdate);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
                 (_, __) => UpdateCommand.ChangeCanExecute();
@@ -50,7 +49,7 @@ namespace NomadeTFC.ViewModels
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
-        private bool ValidateSave()
+        private bool ValidateUpdate()
         {
             return !String.IsNullOrWhiteSpace(Nom);
         }
