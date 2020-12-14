@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NomadeTFC.Views;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -9,7 +10,15 @@ namespace NomadeTFC.ViewModels
     [QueryProperty(nameof(PaysId), nameof(PaysId))]
     class PaysDetailViewModel : BaseViewModel
     {
-        
+        public Command UpdatePaysCommand { get; }
+
+        public PaysDetailViewModel()
+        {
+            Title = "edit_pays";
+
+            UpdatePaysCommand = new Command(onEditPays);
+        }
+
         private string lePaysId;
         private string nom;
        
@@ -50,6 +59,11 @@ namespace NomadeTFC.ViewModels
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+
+        private async void onEditPays(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(UpdatePaysPage));
         }
 
 
